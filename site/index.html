@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompraCripto</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+</head>
+<body class="flex items-center justify-center bg-blue-500 h-screen">
+
+  <div class="bg-white p-6 rounded-md shadow-md w-96">
+    <h2 class="text-2xl font-bold">Pagamento em Criptomoeda</h2>
+
+    <button
+      id="connectWalletBtn"
+      class="bg-blue-500 text-white px-4 py-2 mb-4 mt-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+    >
+      Conectar Carteira
+    </button>
+
+    <label id="walletLabel" class="block text-gray-700 text-sm font-extrabold py-2 mb-4 mt-4" style="display: none;">
+      Wallet: <span id="walletAddress">0x00</span>
+    </label>
+
+    <form id="paymentForm" class="space-y-4">          
+      <div>
+        <label for="totalToDeposit" class="block text-gray-700 text-sm font-extrabold mb-2">
+          Valor a Depositar
+          <input type="number" id="totalToDeposit" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Insira o valor a depositar" min="0" required>
+        </label>
+      </div>
+
+      <!-- New input for Telegram ID -->
+      <div>
+        <label for="telegramId" class="block text-gray-700 text-sm font-extrabold mb-2">
+          ID
+          <input type="text" id="telegramId" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Insira seu ID">
+        </label>
+      </div>
+
+      <label id="hashLabel" class="block text-gray-700 text-sm font-extrabold mb-2" style="display: none; cursor: pointer;">
+        Hash de Confirmação: <span id="confirmationHash"></span>
+      </label>
+
+      <div class="flex items-center justify-center">
+        <button type="button" id="confirmarBtn" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Confirmar</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="index.js" type="application/javascript"></script>
+</body>
+</body>
+</html>
